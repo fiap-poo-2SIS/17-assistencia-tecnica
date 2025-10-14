@@ -10,7 +10,7 @@ public class Cliente {
     @Column(name = "ID_CLIENTE")
     private Long id;
 
-    @Column(name = "NOME", nullable = true, length = 120)
+    @Column(name = "NOME", nullable = false, length = 120)
     private String nome;
 
     @Column(name = "EMAIL", nullable = false, length = 120)
