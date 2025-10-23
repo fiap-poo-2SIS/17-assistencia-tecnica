@@ -5,6 +5,9 @@ import br.fiap.assistencia_tecnica.repository.ClienteRepository;
 import br.fiap.assistencia_tecnica.web.dto.ClienteDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
 @Service
 public class ClienteService {
     private ClienteRepository clienteRepository;
@@ -18,7 +21,17 @@ public class ClienteService {
         cliente.setEmail(clienteDTO.getEmail());
         cliente.setSenha(clienteDTO.getSenha());
         cliente.setTelefone(clienteDTO.getTelefone());
-        //return clienteRepository.save(cliente);
-        clienteRepository.fin
+        return clienteRepository.save(cliente);
     }
+
+    public List<Cliente> listar() {
+        return clienteRepository.findAll();
+    }
+
+    public Cliente buscaPorId(Long id) {
+        return clienteRepository.findById(id).orElse(null);
+    }
+
+
+
 }
